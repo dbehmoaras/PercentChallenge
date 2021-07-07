@@ -1,18 +1,20 @@
 {
     "A": {
-        "price":"1.25",
-        "volume":"[3,3.00]"
-    },
+        "price": 1.25,
+        "volume": [3,3.00]
+    }
+    ,
     "B": {
-        "price": "1.25",
-        "volume": "false"
+        "price": 4.25,
+        "volume": [0,0.00]
     },
     "C": {
-        "price": "1.25",
-        "volume": "[6,5.00]"
-    },
+        "price": 1.00,
+        "volume": [6,5.00]
+    }
+    ,
     "D": {
-        "price": "1.25",
-        "volume": "false"
+        "price": 0.75,
+        "volume": [0,0.00]
     }
 }
