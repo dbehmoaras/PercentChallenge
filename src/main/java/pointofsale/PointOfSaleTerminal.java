@@ -92,7 +92,7 @@ public class PointOfSaleTerminal {
 
 	/**
 	 *
-	 * @param item
+	 * @param item: String, single item being scanned into the purchaseOrder
 	 * @return double: the price of the item stored in the picklist by calling the
 	 *         readPriceList API
 	 */
@@ -102,7 +102,7 @@ public class PointOfSaleTerminal {
 
 	/**
 	 *
-	 * @param item
+	 * @param item: String, single item being scanned into the purchaseOrder
 	 * @return double: returns the price for a volume discount by
 	 *  calling the readPriceList API
 	 */
@@ -112,7 +112,7 @@ public class PointOfSaleTerminal {
 
 	/**
 	 *
-	 * @param item
+	 * @param item: String, single item being scanned into the purchaseOrder
 	 * @return long: returns the minimum qty for a volume discount by
 	 * calling the readPriceList API
 	 */
@@ -121,7 +121,7 @@ public class PointOfSaleTerminal {
 	}
 
 	/**
-	 * Clears the pickList.
+	 * Clears the pickList stored in the hashmap.
 	 */
 	public void clearPickList(){
 		pickList.clear();
