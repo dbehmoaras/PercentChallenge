@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 import java.math.BigDecimal;
 
 
-@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 public class PointOfSaleTerminalTest {
 
 	private static PointOfSaleTerminal testTerminal;
@@ -47,6 +46,22 @@ public class PointOfSaleTerminalTest {
 		testTerminal.scanAll("ABCD");
 		BigDecimal testTotalPrice = testTerminal.calculateTotal();
 		assertEquals(testTotalPrice, BigDecimal.valueOf(7.25), "***** Test Case 3: \"ABCD\" FAILED *****\n");
+		logger.info("***** Test Case 3: \"ABCD\" PASSED *****\n");
+	}
+
+	@Test
+	public void testCaseFour() {
+		testTerminal.scanAll("");
+		BigDecimal testTotalPrice = testTerminal.calculateTotal();
+		assertEquals(testTotalPrice, BigDecimal.valueOf(0.00), "***** Test Case 4: \"\" FAILED *****\n");
+		logger.info("***** Test Case 4: \"\" PASSED *****\n");
+	}
+
+	@Test
+	public void testCaseFive() {
+		testTerminal.scanAll("AAABBBBBCCCCCCCD");
+		BigDecimal testTotalPrice = testTerminal.calculateTotal();
+		assertEquals(testTotalPrice, BigDecimal.valueOf(31.00), "***** Test Case 3: \"ABCD\" FAILED *****\n");
 		logger.info("***** Test Case 3: \"ABCD\" PASSED *****\n");
 	}
 }

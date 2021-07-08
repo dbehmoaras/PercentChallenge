@@ -22,6 +22,7 @@ public class PointOfSaleTerminal {
 	 * @return BigDecimal: value of the total price of the items in the pickList
 	 */
 	public BigDecimal calculateTotal() {
+		if (pickList.isEmpty()) return BigDecimal.valueOf(0.00);
 		double totalPrice = 0.00;
 
 		/* pull the keys out of the pickList into an iterable cart */
