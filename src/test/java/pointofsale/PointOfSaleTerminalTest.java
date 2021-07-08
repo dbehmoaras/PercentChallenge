@@ -61,7 +61,7 @@ public class PointOfSaleTerminalTest {
 	public void testCaseFive() {
 		testTerminal.scanAll("AAABBBBBCCCCCCCD");
 		BigDecimal testTotalPrice = testTerminal.calculateTotal();
-		assertEquals(testTotalPrice, BigDecimal.valueOf(31.00), "***** Test Case 3: \"ABCD\" FAILED *****\n");
-		logger.info("***** Test Case 3: \"ABCD\" PASSED *****\n");
+		assertEquals(testTotalPrice, BigDecimal.valueOf(31.00), "***** Test Case 5: \"AAABBBBBCCCCCCCD\" FAILED *****\n");
+		logger.info("***** Test Case 5: \"AAABBBBBCCCCCCCD\" PASSED *****\n");
 	}
 }

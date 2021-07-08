@@ -54,6 +54,7 @@ public class PointOfSaleTerminal {
 			}
 		}
 
+		/* convert totalPrice to BigDecimal and return */
 		return BigDecimal.valueOf(totalPrice);
 	}
 
