@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class PointOfSaleTerminal {
 
 	/* stores the total pickList scanned through the terminal */
-	private static final HashMap<String, Integer> pickList = new HashMap<>();
+	public final HashMap<String, Integer> pickList = new HashMap<>();
 
 	/**
 	 * Iterates through the keys of the hashMap and stores the running
@@ -19,19 +19,30 @@ public class PointOfSaleTerminal {
 	 */
 	public BigDecimal calculateTotal() {
 		double totalPrice = 0.00;
-		Set<String> itemKeys = pickList.keySet();
-		System.out.println(itemKeys);
 
+		/* pull the keys out of the pickList into an iterable cart */
+		Set<String> itemKeys = pickList.keySet();
 		Iterator<String> cart = itemKeys.iterator();
 
-		/*
-		Iterate through the keys in the cart.
-		*/
+
+		/**
+		 * Iterate through the keys in the cart. Store the item key as a string and
+		 * and its corresponding quantity as an int in order to check the pickList
+		 * for items that meet the requirements for a volume discounted price.
+		 */
+		/* */
 		while (cart.hasNext()) {
 			Object currentItem = cart.next();
 			String itemStr = currentItem.toString();
 			int currentQty = pickList.get(currentItem);
 
+
+			/**
+			 * If the item offers a volume discount and the currentQty exceeds the
+			 * minimum quantity, use the volume price to calculate the volume discounted
+			 * price and modular arithmetic to calculate the cost of the remaining qty.
+			 * Otherwise just multiply the currentQty by the item's price.
+			 */
 			if (getVolumeQty(itemStr) > 0 && currentQty >= getVolumeQty(itemStr)) {
 				totalPrice += (currentQty / getVolumeQty(itemStr)) * getVolumePrice(itemStr);
 				totalPrice += currentQty % getVolumeQty(itemStr) * getPrice(itemStr);
@@ -74,15 +85,6 @@ public class PointOfSaleTerminal {
 		} else {
 			pickList.put(item, 1);
 		}
-	}
-
-	/**
-	 * Tester method, DELETE
-	 * @param item
-	 * @return int: the quantity of the item stored in the pick list
-	 */
-	public int getQty(String item) {
-		return pickList.get(item);
 	}
 
 	/**

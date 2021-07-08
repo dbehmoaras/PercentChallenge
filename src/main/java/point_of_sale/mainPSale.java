@@ -11,17 +11,5 @@ public class mainPSale {
 		System.out.println("Total price:");
 		System.out.println(totalPrice);
 
-		// int termA = terminal.getQty("A");
-		// int termB = terminal.getQty("B");
-		// System.out.println("Terminal get qty");
-		// System.out.println(termA);
-		// System.out.println(termB);
-
-		// double price = readPriceList.getPrice("A");
-		// System.out.println(price);
-
-		// int minQty = readPriceList.getVolumeQty("A");
-		// System.out.println(minQty);
-		// System.out.println(minQty*2);
 	}
 };
