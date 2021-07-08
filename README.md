@@ -1,7 +1,11 @@
 # PercentChallenge
 
 ## Getting Started:
-A package has already been provided. In order to run the test suite, run the following command in the terminal:
+A package has already been provided. However, in the event certain dependencies are missing, please run the following command in the terminal:
+```
+mvn package
+```
+In order to run the test suite, run the following command in the terminal:
 ```
 mvn test
 ```
