@@ -1,10 +1,14 @@
-package point_of_sale;
+package pointofsale;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Iterator;
 
+/**
+ * Main PointOfSaleTerminal API that interfaces with the readPriceList API
+ * get pricing information for items.
+ */
 public class PointOfSaleTerminal {
 
 	/* stores the total pickList scanned through the terminal */
@@ -24,7 +28,6 @@ public class PointOfSaleTerminal {
 		Set<String> itemKeys = pickList.keySet();
 		Iterator<String> cart = itemKeys.iterator();
 
-
 		/**
 		 * Iterate through the keys in the cart. Store the item key as a string and
 		 * and its corresponding quantity as an int in order to check the pickList
@@ -36,11 +39,10 @@ public class PointOfSaleTerminal {
 			String itemStr = currentItem.toString();
 			int currentQty = pickList.get(currentItem);
 
-
 			/**
-			 * If the item offers a volume discount and the currentQty exceeds the
-			 * minimum quantity, use the volume price to calculate the volume discounted
-			 * price and modular arithmetic to calculate the cost of the remaining qty.
+			 * If the item offers a volume discount and the currentQty
+			 * exceeds the minimum quantity, use the volume price to
+			 * calculate the volume discounted price and modular arithmetic to calculate the cost of the remaining qty.
 			 * Otherwise just multiply the currentQty by the item's price.
 			 */
 			if (getVolumeQty(itemStr) > 0 && currentQty >= getVolumeQty(itemStr)) {
@@ -49,9 +51,8 @@ public class PointOfSaleTerminal {
 			} else {
 				totalPrice += currentQty * getPrice(itemStr);
 			}
-
-
 		}
+
 		return BigDecimal.valueOf(totalPrice);
 	}
 
@@ -62,24 +63,24 @@ public class PointOfSaleTerminal {
 	 *
 	 * @param items: String, the entire customer order
 	 */
-	public void scanAll(String items) {
+	public void scanAll(final String items) {
 		for (int i = 0; i < items.length(); i += 1) {
-			if (pickList.containsKey(items.substring(i,i+1))) {
-				pickList.replace(items.substring(i,i+1), pickList.get(items.substring(i,i+1)) + 1);
+			if (pickList.containsKey(items.substring(i, i + 1))) {
+				pickList.replace(items.substring(i, i + 1), pickList.get(items.substring(i, i + 1)) + 1);
 			} else {
-				pickList.put(items.substring(i,i+1), 1);
+				pickList.put(items.substring(i, i + 1), 1);
 			}
 		}
 	}
 
 	/**
-	 * Stores one item in the pickList hashmap. If the item exists in
-	 * the pickList, its quantity value is incremented by 1.
+	 * Stores one item in the pickList hashmap. If the item exists in the pickList,
+	 * its quantity value is incremented by 1.
 	 *
 	 * @param item: String, single item being scanned into the purchaseOrder
 	 *
 	 */
-	public void scanOne(String item) {
+	public void scanOne(final String item) {
 		if (pickList.containsKey(item)) {
 			pickList.replace(item, pickList.get(item) + 1);
 		} else {
@@ -90,28 +91,37 @@ public class PointOfSaleTerminal {
 	/**
 	 *
 	 * @param item
-	 * @return double: the price of the item stored in
-	 * the picklist by calling the readPriceList API
+	 * @return double: the price of the item stored in the picklist by calling the
+	 *         readPriceList API
 	 */
-	public double getPrice(String item) {
+	public double getPrice(final String item) {
 		return readPriceList.getPrice(item);
 	}
 
 	/**
 	 *
 	 * @param item
-	 * @return double: returns the price for a volume discount by calling the readPriceList API
+	 * @return double: returns the price for a volume discount by
+	 *  calling the readPriceList API
 	 */
-	public double getVolumePrice(String item) {
+	public double getVolumePrice(final String item) {
 		return readPriceList.getVolumePrice(item);
 	}
 
 	/**
 	 *
 	 * @param item
-	 * @return long: returns the minimum qty for a volume discount by calling the readPriceList API
+	 * @return long: returns the minimum qty for a volume discount by
+	 * calling the readPriceList API
 	 */
-	public int getVolumeQty(String item) {
+	public int getVolumeQty(final String item) {
 		return readPriceList.getVolumeQty(item);
+	}
+
+	/**
+	 * Clears the pickList.
+	 */
+	public void clearPickList(){
+		pickList.clear();
 	}
 }

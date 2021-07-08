@@ -50,7 +50,7 @@
                             <transformers>
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>point_of_sale.mainPSale</mainClass>
+                                    <mainClass>pointofsale.mainPSale</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

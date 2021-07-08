@@ -1,4 +1,4 @@
-package point_of_sale;
+package pointofsale;
 
 import java.math.BigDecimal;
 

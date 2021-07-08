@@ -1,7 +1,8 @@
-package point_of_sale;
+package pointofsale;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.*;
+
 import java.util.logging.Logger;
 import java.math.BigDecimal;
 
@@ -45,7 +46,7 @@ public class PointOfSaleTerminalTest {
 	public void testCaseThree() {
 		testTerminal.scanAll("ABCD");
 		BigDecimal testTotalPrice = testTerminal.calculateTotal();
-		assertEquals(testTotalPrice, BigDecimal.valueOf(7.25), "***** Test Case 2: \"ABCD\" FAILED *****\n");
-		logger.info("***** Test Case 2: \"ABCD\" PASSED *****\n");
+		assertEquals(testTotalPrice, BigDecimal.valueOf(7.25), "***** Test Case 3: \"ABCD\" FAILED *****\n");
+		logger.info("***** Test Case 3: \"ABCD\" PASSED *****\n");
 	}
 }

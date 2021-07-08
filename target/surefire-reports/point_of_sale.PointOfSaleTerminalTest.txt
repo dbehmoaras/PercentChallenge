@@ -1,4 +1,22 @@
 -------------------------------------------------------------------------------
 Test set: point_of_sale.PointOfSaleTerminalTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in point_of_sale.PointOfSaleTerminalTest
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.066 s <<< FAILURE! - in point_of_sale.PointOfSaleTerminalTest
+testCaseOne  Time elapsed: 0.019 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+
+	at point_of_sale.PointOfSaleTerminalTest.testCaseOne(PointOfSaleTerminalTest.java:34)
+
+testCaseTwo  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+
+	at point_of_sale.PointOfSaleTerminalTest.testCaseTwo(PointOfSaleTerminalTest.java:42)
+
+testCaseThree  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+
+	at point_of_sale.PointOfSaleTerminalTest.testCaseThree(PointOfSaleTerminalTest.java:50)
+
